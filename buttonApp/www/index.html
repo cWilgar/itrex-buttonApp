@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  	<head>
+	    <meta charset="utf-8">
+	    <title>3dButton</title>
+	    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+	    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+	    <link href="css/style.css" rel="stylesheet">
+
+	    <script type="text/javascript" src="lib/ionic/js/ionic.bundle.js"></script>
+	    <script type="text/javascript" src="lib/three.js"></script>
+
+		<script type="text/javascript" src="js/app.js"></script>
+		<script type="text/javascript" src="js/directive.js"></script>
+		
+	    <!-- Needed for Cordova/PhoneGap (will be a 404 during development) -->
+	    <script src="cordova.js"></script>
+  	</head>
+	<body ng-app="3dButton" ng-controller="ButtonController" ng-click="removePopoverIfShown(); updateMousePos($event)" on-drag"removePopoverIfShown(); updateMousePos($event)" ng-mousemove="updateMousePos($event)">
+
+		<ion-header-bar class="bar-dark">
+			<h1 class="title">3dButton App</h1>
+		</ion-header-bar>
+
+	  	<form name="buttonForm" ng-submit="incrementClicks()">
+		  	<ion-content scroll="false" class="fixed-top flex-fill-parent">
+						<button three-js-insert class="clear mouseover-{{mouseData.overButton}}" type="submit" ng-mouseover="" >
+						</button>
+			</ion-content>
+
+		<ion-footer-bar class="bar-dark">
+			<h1 class="title"></h1>
+		</ion-footer-bar>
+
+			<script id="templates/popover.html" type="text/ng-template">
+		      <ion-popover-view id="buttonDescription" class="fixed-top">
+			  		<p>Believe it or not, that is actually one of those big lovely buttons that you're not supposed to press. If you press it too many times you will get told off.</p>
+			  		<p>Click (or drag) anywhere on the screen (preferably near the edges) to resume not clicking the button.</p>
+		      </ion-popover-view> //'
+		    </script>
+
+		</form>
+
+	</body>
+</html>
